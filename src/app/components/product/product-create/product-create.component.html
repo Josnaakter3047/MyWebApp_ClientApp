@@ -1,0 +1,46 @@
+
+<form class="form-container" [formGroup]="productForm" (submit)="insert()">
+  <div class="f-w">
+    <h3>Create Product</h3>
+  </div>
+  <mat-form-field class="f-w">
+    <mat-label>Product Name</mat-label>
+    <input matInput formControlName="productName" />
+  </mat-form-field>
+
+  <mat-form-field class="f-w">
+    <mat-label>Category</mat-label>
+    <mat-select formControlName="categoryId">
+      <mat-option value="0" selected="selected">--Select one--</mat-option>
+      <mat-option *ngFor="let cat of categories" [value]="cat.id">{{cat.categoryName}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="f-w">
+    <mat-label>Quantity</mat-label>
+    <input matInput formControlName="quantity" />
+  </mat-form-field>
+
+  <mat-form-field class="f-w">
+    <mat-label>Unit Price</mat-label>
+    <input matInput formControlName="unitPrice" />
+  </mat-form-field>
+
+  <mat-form-field class="f-w">
+    <mat-label>Store Date</mat-label>
+    <input matInput formControlName="storeDate" [matDatepicker]="picker" />
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <div class="f-w">
+    <mat-label >Is Available</mat-label>
+    <mat-checkbox style="padding:15px;" formControlName="isAvailable"></mat-checkbox>
+  </div>
+  <div class="f-w">
+    <button [disabled]="productForm.invalid" mat-raised-button type="submit" color="accent"><mat-icon>save_alt</mat-icon>Save</button>
+  </div>
+  <div class="f-w">
+    <a mat-flat-button [routerLink]="['/product']">Back to list</a>
+  </div>
+</form>
+

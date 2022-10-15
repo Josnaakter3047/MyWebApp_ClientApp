@@ -1,0 +1,18 @@
+
+<form class="form-container" [formGroup]="categoryForm" (submit)="insert()">
+  <div class="f-w">
+    <h1>Create Category</h1>
+  </div>
+  <mat-form-field class="f-w" appearence="outline">
+    <mat-label>Category Name</mat-label>
+    <input matInput formControlName="categoryName" />
+  </mat-form-field>
+
+  <div class="f-w">
+    <button [disabled]="categoryForm.invalid" mat-raised-button type="submit" color="accent"><mat-icon>save_alt</mat-icon>Save</button>
+  </div>
+  <div class="f-w">
+    <a mat-flat-button [routerLink]="['/category']">Back to list</a>
+  </div>
+</form>
+

@@ -1,0 +1,29 @@
+<form class="form-container" [formGroup]="productImageForm" (submit)="update()">
+  <div class="f-w">
+    <h3>Update new Product Image</h3>
+  </div>
+  <mat-form-field class="f-w" appearance="fill">
+    <mat-label>Product</mat-label>
+    <mat-select formControlName="productId">
+      <mat-option value="">--select one--</mat-option>
+      <mat-option *ngFor="let p of products" [value]="p.id">
+        {{p.productName}}
+      </mat-option>
+    </mat-select>
+    
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" class="f-w">
+    <mat-label>Product Picture</mat-label>
+    <ngx-mat-file-input formControlName="imagPath" [accept]="'image/*'" (change)="onChange($event)"></ngx-mat-file-input>
+    <mat-icon matSuffix>insert_photo</mat-icon>
+  </mat-form-field>
+
+
+  <div class="f-w">
+    <button [disabled]="productImageForm.invalid" mat-raised-button type="submit" color="primary"><mat-icon>save</mat-icon> Update</button>
+  </div>
+  <div class="f-w">
+    <a mat-flat-button [routerLink]="['/image']">Back to list</a>
+  </div>
+</form>

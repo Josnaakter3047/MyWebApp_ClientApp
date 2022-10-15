@@ -1,0 +1,25 @@
+
+
+<div class="container">
+  <div class="row">
+    <h1 class="text-center mt-3">View All Products</h1>
+    <div class="col-md-3" *ngFor="let p of productsData">
+      <div class="card-body">
+        <div class="col-md-12 mt-3">
+          <img src="http://localhost:16669/Images/{{p.imagePath}}" width="210" height="250" />
+          <p></p>
+          <p class="card-title"><b>Product Name:</b> {{p.productName}}</p>
+          <p class="card-title"><b>Price:Tk-</b> {{p.unitPrice}}</p>
+          <p class="card-title"><b>Status:</b> {{p.isAvailable?'Available':'Not Available'}}</p>
+
+        </div>
+        <div class="card-footer bg-secondary" style="width:250px;">
+          <a  [routerLink]="['/login']" class="btn btn-success">Show Details</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
